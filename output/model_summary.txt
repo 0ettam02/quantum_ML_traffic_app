@@ -1,0 +1,31 @@
+Model: "lopez2017network_CNN_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_18 (Conv2D)          (None, 10, 4, 32)         288       
+                                                                 
+ max_pooling2d_18 (MaxPooli  (None, 10, 4, 32)         0         
+ ng2D)                                                           
+                                                                 
+ batch_normalization_18 (Ba  (None, 10, 4, 32)         128       
+ tchNormalization)                                               
+                                                                 
+ conv2d_19 (Conv2D)          (None, 10, 4, 64)         16448     
+                                                                 
+ max_pooling2d_19 (MaxPooli  (None, 10, 4, 64)         0         
+ ng2D)                                                           
+                                                                 
+ batch_normalization_19 (Ba  (None, 10, 4, 64)         256       
+ tchNormalization)                                               
+                                                                 
+ flatten_9 (Flatten)         (None, 2560)              0         
+                                                                 
+ dense_18 (Dense)            (None, 200)               512200    
+                                                                 
+ dense_19 (Dense)            (None, 40)                8040      
+                                                                 
+=================================================================
+Total params: 537360 (2.05 MB)
+Trainable params: 537168 (2.05 MB)
+Non-trainable params: 192 (768.00 Byte)
+_________________________________________________________________
