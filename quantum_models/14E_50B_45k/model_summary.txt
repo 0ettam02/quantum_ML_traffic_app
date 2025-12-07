@@ -1,0 +1,17 @@
+Model: "ampe_fixed_probs"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten (Flatten)           (None, 40)                0         
+                                                                 
+ dense (Dense)               (None, 32)                1312      
+                                                                 
+ keras_layer (KerasLayer)    (None, 32)                45        
+                                                                 
+ dense_1 (Dense)             (None, 40)                1320      
+                                                                 
+=================================================================
+Total params: 2,677
+Trainable params: 2,677
+Non-trainable params: 0
+_________________________________________________________________

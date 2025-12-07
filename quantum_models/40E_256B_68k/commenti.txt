@@ -1,0 +1,5 @@
+﻿40 epoche, batch size 256, 10 pacchetti, dataset completo diviso in training test e validation (70% 15% 15%)
+40 epoche con accuracy del ~34% su test e validation. le classi più piccole non le riconosce.
+Tepo di addestramento ~22 minuto, ~30 secondi per epoca. (Ho lanciato 2 volte il blocco di training per questo in history è salvato solo il secondo addestramento)
+In generale a parità di tempo questo performa meglio di quello con batch size 50. (Vedi classification report)
+Dal grafico non sembra andare in overfitting e potremmo provare ad aumentare ancora il numero di epoche.

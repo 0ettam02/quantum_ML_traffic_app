@@ -1,0 +1,4 @@
+~92 secondi per epoca 14 epoche.
+Accuracy di 31% ma molto scarso sulle altre metriche, buona parte delle classi non le considera.
+Per il momento il migliore è quello da 30k considerando tempistiche e report.
+No overfitting.

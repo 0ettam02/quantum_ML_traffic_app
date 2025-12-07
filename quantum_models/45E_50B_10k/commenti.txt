@@ -1,0 +1,3 @@
+﻿modello addestrato con 10k elementi. Molto scarso, non riconosce molte classi (vedi classification report). 30 secondi per epoca con batch size 50, totale 45 epoche 22 minuti.
+dal grafico si vede anche che probabilmente andando avanti potrebbe andare in overfitting.
+Conclusione: 10k dati sono troppo pochi.

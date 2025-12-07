@@ -1,0 +1,4 @@
+~88 secondi per epoca totale 15 epoche, 22 minuti.
+accuracy 30% praticamente quasi come quello con tutto il dataset con batch 50.
+le metriche medie su precision, recall e f1 sono anche meglio di quello con tutto il dataset.
+non c'è overfitting, si potrebbe addestrare molto di più.

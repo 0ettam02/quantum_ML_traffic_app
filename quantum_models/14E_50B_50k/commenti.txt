@@ -1,0 +1,4 @@
+14 epoche, ~100s per epoca. Accuracy 31% sul validation e 32% sul test.
+No overfitting. Anche qui non vengono considerate le classi con pochi elementi.
+precision, recall e f1 non sono malissimo.
+
