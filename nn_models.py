@@ -77,6 +77,23 @@ class AmpHybridModel(nn.Module):
         return self.dense2(x)
         # return self.softmax(x)
 
+    def quantum_forward(self, x):
+        """
+        Metodo per eseguire solo il passaggio attraverso il layer quantistico.
+        Utile per l'estrazione delle caratteristiche quantistiche.
+
+        Args:
+            x (torch.Tensor): Input tensor
+
+        Returns:
+            torch.Tensor: Output del layer quantistico
+        """
+        x = self.flatten(x)
+        x = self.dense1(x)
+        x = self.sigmoid(x)
+        x = self.q_layer(x)
+        return x
+
     def get_model_name(self):
         """
         Restituisce una stringa con il nome del modello che riassume i parametri principali.
@@ -386,3 +403,48 @@ class WaterfallHybridModel(nn.Module):
                  dove n=n_qubits, n=n_layers
         """
         return f"WaterfallHybrid_Q{self.n_qubits}_L{self.n_layers}"
+
+
+# -------------------- Classic conv1d --------------------
+class TrafficCNN(nn.Module):
+    def __init__(self, n_qubits, n_layers, n_packets, n_features, num_classes, random_seed=42):
+        super(TrafficCNN, self).__init__()
+
+        self.num_classes = num_classes
+
+        self.features = nn.Sequential(
+            # Input: (B, 4, 36)
+            nn.Conv1d(4, 64, kernel_size=3, padding=1),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
+            # nn.Dropout(0.2),
+
+            nn.Conv1d(64, 128, kernel_size=3, padding=1),
+            nn.BatchNorm1d(128),
+            nn.ReLU(),
+            # nn.Dropout(0.2),
+
+            nn.Conv1d(128, 256, kernel_size=3, padding=1),
+            nn.BatchNorm1d(256),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool1d(1)  # Global Average Pooling -> (B, 256, 1)
+        )
+
+        self.classifier = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            # nn.Dropout(0.5),
+            nn.Linear(128, num_classes)
+        )
+
+    def forward(self, x):
+        x = self.features(x)
+        x = self.classifier(x)
+        return x
+
+    def get_model_name(self):
+        return f"TrafficCNN_C{self.num_classes}"
+
+    def get_model_name_short(self):
+        return f"TrafficCNN_C{self.num_classes}"
